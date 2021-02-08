@@ -9,7 +9,7 @@ interface props{
 class Chip extends Component<props> {
     render(){
     const {vendor, price, unit} = this.props
-    return <div className="lg:w-1/6">
+    return <div className="lg:w-1/6 mx-1">
                 <div className="widget p-4 rounded-lg bg-white hover:bg-gray-50 transition-colors border border-gray-100 dark:bg-gray-900 dark:border-gray-800">
                     <div className="flex items-center justify-between">
                         <div className="flex flex-col">
