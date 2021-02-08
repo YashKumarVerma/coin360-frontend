@@ -1,3 +1,5 @@
+import "./tailwind.output.css"
+
 import Navbar from "./components/navbar/navbar.component"
 import React from 'react';
 
