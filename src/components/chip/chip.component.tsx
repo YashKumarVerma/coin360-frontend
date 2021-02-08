@@ -9,10 +9,9 @@ interface props{
 class Chip extends Component<props> {
     render(){
     const {vendor, price, unit} = this.props
-    return <div className="flex flex-col lg:flex-row w-full lg:space-x-2 space-y-2 lg:space-y-0 mb-2 lg:mb-4">
-            <div className="w-full lg:w-1/6">
-                <div className="widget w-full p-4 rounded-lg bg-white hover:bg-gray-50 transition-colors border border-gray-100 dark:bg-gray-900 dark:border-gray-800">
-                    <div className="flex flex-row items-center justify-between">
+    return <div className="lg:w-1/6">
+                <div className="widget p-4 rounded-lg bg-white hover:bg-gray-50 transition-colors border border-gray-100 dark:bg-gray-900 dark:border-gray-800">
+                    <div className="flex items-center justify-between">
                         <div className="flex flex-col">
                             <div className="text-xs uppercase font-light text-gray-500">
                                 {`${price} ${unit.toUpperCase()}`}
@@ -25,7 +24,6 @@ class Chip extends Component<props> {
                     </div>
                 </div>
             </div>
-        </div>
     }
 }
 

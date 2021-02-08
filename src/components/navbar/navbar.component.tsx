@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 class Navbar extends React.Component {
     render(){
         return (
-            <AppBar position="static">
+            <AppBar position="sticky">
               <Toolbar>
                 <Typography variant="h6">
                   Coin360
