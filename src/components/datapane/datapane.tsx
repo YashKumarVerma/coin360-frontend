@@ -35,6 +35,7 @@ class DataPane extends Component<props, state> {
     const { data } = await axios.get(`${CONFIG.server}/hydrate`);
     this.setState({ markets: data });
 
+    /** scroll listener */
     window.addEventListener("scroll", async () => {
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
         if (!this.state.lock) {
@@ -54,6 +55,8 @@ class DataPane extends Component<props, state> {
         }
       }
     });
+
+    /** data updaters */
   }
 
   /** to remove listener from scroll */
