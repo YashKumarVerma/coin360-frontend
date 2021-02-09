@@ -1,22 +1,31 @@
-import Chip from "../chip/chip.component"
+import { Chip } from "../../interface/chip.interface"
+import ChipComponent from "../chip/chip.component"
 import {Component} from "react"
 import Divider from "../divider/divider.component"
+import { Market } from "../../interface/market.interface"
 
-class MarketRow extends Component {
+interface props{
+    market:Market
+}
+
+class MarketRow extends Component<props> {
     render(){
+        const {market} = this.props
+        console.log(market)
+
         return (
             <div className="flex flex-row">
-                <Chip price="103,421" unit="BTC" vendor="Benance" />
-                <Chip price="103,421" unit="BTC" vendor="Benance" />
-                <Chip price="103,421" unit="BTC" vendor="Benance" />
-                <Chip price="103,421" unit="BTC" vendor="Benance" />
-                <Chip price="103,421" unit="BTC" vendor="Benance" />
-                <Divider title="BTC/USDT" />
-                <Chip price="103,421" unit="BTC" vendor="Benance" />
-                <Chip price="103,421" unit="BTC" vendor="Benance" />
-                <Chip price="103,421" unit="BTC" vendor="Benance" />
-                <Chip price="103,421" unit="BTC" vendor="Benance" />
-                <Chip price="103,421" unit="BTC" vendor="Benance" />
+                {
+                    Object.keys(market.asks).map((chip, index)=>{
+                            return <ChipComponent data={market.asks[chip]} base={market.base} />
+                    })
+                }
+                <Divider title={market.pair}  />
+                {
+                    Object.keys(market.bids).map((chip, index)=>{
+                            return <ChipComponent data={market.bids[chip]} base={market.base} />
+                    })
+                }
             </div>
         )
     }    
