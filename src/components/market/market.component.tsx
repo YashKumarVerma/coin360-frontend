@@ -1,4 +1,3 @@
-import { Chip } from "../../interface/chip.interface";
 import ChipComponent from "../chip/chip.component";
 import { Component } from "react";
 import Divider from "../divider/divider.component";

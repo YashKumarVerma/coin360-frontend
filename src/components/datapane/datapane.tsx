@@ -1,3 +1,4 @@
+import { CONFIG } from "../../constants/constants";
 import { Component } from "react";
 import { Market } from "../../interface/market.interface";
 import MarketRow from "../market/market.component";
@@ -31,7 +32,7 @@ class DataPane extends Component<props, state> {
 
   /** function to run initial data */
   async componentDidMount() {
-    const { data } = await axios.get("http://localhost:3000/hydrate");
+    const { data } = await axios.get(`${CONFIG.server}/hydrate`);
     this.setState({ markets: data });
 
     window.addEventListener("scroll", async () => {
@@ -43,7 +44,7 @@ class DataPane extends Component<props, state> {
           //   load more details
           const { endIndex } = this.state;
           const { data } = await axios.get(
-            `http://localhost:3000/hydrate/${endIndex + 1}/${endIndex + 20}`
+            `${CONFIG.server}/hydrate/${endIndex + 1}/${endIndex + 20}`
           );
           this.setState({
             markets: [...this.state.markets, ...data],
